@@ -170,8 +170,9 @@
         </collision>
       </link>
 
+      <!-- Ruedas principales movidas al centro (X = 0) -->
       <link name="left_wheel">
-        <pose>0.015 0.0325 -0.015 -1.5708 0 0</pose>
+        <pose>0 0.0325 -0.015 -1.5708 0 0</pose>
         <inertial>
           <mass>0.02</mass>
           <inertia><ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz></inertia>
@@ -187,7 +188,7 @@
       </link>
 
       <link name="right_wheel">
-        <pose>0.015 -0.0325 -0.015 -1.5708 0 0</pose>
+        <pose>0 -0.0325 -0.015 -1.5708 0 0</pose>
         <inertial>
           <mass>0.01</mass>
           <inertia><ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz></inertia>
@@ -202,10 +203,30 @@
         </collision>
       </link>
 
-      <link name="caster">
+      <!-- Rueda loca trasera -->
+      <link name="rear_caster">
         <pose>-0.02 0 -0.025 0 0 0</pose>
         <inertial>
-          <mass>0.1</mass>
+          <mass>0.05</mass>
+          <inertia><ixx>0.000001</ixx><iyy>0.000001</iyy><izz>0.000001</izz></inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.01</radius></sphere></geometry>
+          <material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse></material>
+        </visual>
+        <collision name="collision">
+          <geometry><sphere><radius>0.01</radius></sphere></geometry>
+          <surface>
+            <friction><ode><mu>0.0</mu><mu2>0.0</mu2></ode></friction>
+          </surface>
+        </collision>
+      </link>
+
+      <!-- Rueda loca delantera para equilibrar -->
+      <link name="front_caster">
+        <pose>0.02 0 -0.025 0 0 0</pose>
+        <inertial>
+          <mass>0.05</mass>
           <inertia><ixx>0.000001</ixx><iyy>0.000001</iyy><izz>0.000001</izz></inertia>
         </inertial>
         <visual name="visual">
@@ -232,9 +253,14 @@
         <axis><xyz>0 0 1</xyz></axis>
       </joint>
 
-      <joint name="caster_joint" type="fixed">
+      <joint name="rear_caster_joint" type="fixed">
         <parent>chassis</parent>
-        <child>caster</child>
+        <child>rear_caster</child>
+      </joint>
+
+      <joint name="front_caster_joint" type="fixed">
+        <parent>chassis</parent>
+        <child>front_caster</child>
       </joint>
 
       <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
