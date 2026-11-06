@@ -39,16 +39,10 @@ ros2 launch vsss_sim sim_launch.py mi_equipo:=azul modo:=duelo
 ```
 
 ## 3. Control Manual (Teleoperación)
-Controla cualquier robot instanciado publicando velocidades en su tópico. En una **nueva terminal**, ejecuta:
-
-```bash
-source install/setup.bash
-python3 src/vsss_sim/scripts/control_teclado.py /robot1/cmd_vel
-```
+Controla cualquier robot instanciado publicando velocidades en su tópico.
 
 - **Aliados (Azules):** `/robot1/cmd_vel`, `/robot2/cmd_vel`, `/robot3/cmd_vel`
 - **Rivales (Amarillos):** `/rival1/cmd_vel`, `/rival2/cmd_vel`, `/rival3/cmd_vel`
-- **Controles:** Usa `W, A, S, D` para moverte y `Espacio` para frenar.
 
 ## 4. Regenerar ArUcos (Texturas)
 Si requieres ajustar el diccionario de OpenCV o cambiar tonos de color, modifica y ejecuta:
