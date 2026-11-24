@@ -15,7 +15,7 @@ install(DIRECTORY
   launch
   worlds
   models
-  urdf
+  #urdf
   DESTINATION share/${PROJECT_NAME}
 )
 
