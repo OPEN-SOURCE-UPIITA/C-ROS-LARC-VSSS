@@ -15,3 +15,5 @@ venv/
 *.log
 *.tmp
 *.bak
+
+vsss_rl/
