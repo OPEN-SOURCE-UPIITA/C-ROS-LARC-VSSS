@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "S3-Supermini")(type "KiCad")(uri "${KIPRJMOD}/sym_extra/S3-Supermini.kicad_sym")(options "")(descr ""))
+  (lib (name "esp32supermini")(type "KiCad")(uri "${KIPRJMOD}/esp32supermini.kicad_sym")(options "")(descr ""))
+  (lib (name "ROB-14450")(type "KiCad")(uri "${KIPRJMOD}/footprints_extra/ROB-14450/ROB-14450.kicad_sym")(options "")(descr ""))
+)
